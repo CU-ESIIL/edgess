@@ -12,6 +12,7 @@ As the working group progresses, the repository becomes the reproducible record 
 [Open the GitHub repository](https://github.com/CU-ESIIL/Working_group_OASIS){ .md-button }
 
 ![Placeholder image for the homepage overview][slot-hero]{ .homepage-hero }
+--8<-- "![Working Group Hero](assets/images/hero.png){ .homepage-hero } direct link to hero image"
 
 --8<-- "_generated/slot_notes/hero.md"
 
