@@ -1,48 +1,80 @@
-# Working Group Template
+# EdgeSS: Sensor Synthesis at the Edge
 
-This repository is a template for ESIIL Working Groups.
+This repository serves as the central collaboration and documentation hub for the **EdgeSS (Sensor Synthesis at the Edge: Scalable Environmental Insights from Real-time Data)** project.
 
-This template is designed as one connected system:
+EdgeSS brings together environmental scientists, data scientists, AI researchers, and cyberinfrastructure experts to develop scalable approaches for integrating real-time environmental sensor data, edge computing, and artificial intelligence. The project focuses on advancing environmental monitoring and decision-making through distributed sensing systems and interoperable data workflows.
 
-- The repository is where the science happens.
-- The website is where the science is shared.
-- GitHub connects them through commits, version history, and publishing.
+The repository supports project coordination, technical documentation, working group activities, meeting materials, and public-facing project communication through an automatically generated website.
 
-## How this repository is organized
+## Project Objectives
 
-The repository has two connected layers. Top-level files configure the project and its automation. The `docs/` folder contains the website content. `mkdocs.yml` tells MkDocs how to turn that content into the public site. Analysis folders hold the working scientific materials that generate the results shown on the website.
+EdgeSS is organized around three environmental challenge areas:
+
+* **Invasive Species Monitoring** – Tracking and understanding the spread of invasive organisms such as the Spotted Lanternfly using distributed sensing networks and AI-enabled detection systems.
+* **Forest Disturbance and Ecosystem Response** – Investigating how wildfire, drought, insects, and disease influence vegetation dynamics, phenology, and ecological resilience.
+* **Air Quality and Environmental Health** – Examining spatial and temporal patterns in air pollution using real-time environmental sensing and edge-based analytics.
+
+The project leverages emerging cyberinfrastructure, including smart sensors, edge computing platforms, environmental observatories, and AI-driven data processing pipelines to generate actionable environmental insights at scale.
+
+---
+
+## Repository Structure
+
+This repository is organized as a connected system that supports both project development and public dissemination.
 
 ```text
 .
-├── README.md              # Repository overview and setup notes
-├── mkdocs.yml             # Website navigation, theme, plugins, and edit links
-├── docs/                  # Markdown source for the public website
-├── scripts/               # Build helpers and site health checks
-├── templates/             # Reusable meeting-note templates
-├── containers/            # Optional runtime and environment setup
-└── other working folders  # Add data, notebooks, scripts, workflows, outputs, or figures here as the group's science grows
+├── README.md              # Project overview and repository guidance
+├── mkdocs.yml             # Website configuration and navigation
+├── docs/                  # Public-facing project website content
+├── scripts/               # Site utilities and automation scripts
+├── templates/             # Meeting notes and project templates
+├── containers/            # Development and deployment environments
+└── project folders        # Research materials, workflows, data products, and analyses
 ```
 
-Use these rules of thumb when deciding where to put something:
+### Documentation Layer
 
-- Top-level files and folders are for project configuration, automation, contribution guidance, licensing, environment setup, and repo-wide metadata.
-- `docs/` is for public website pages and assets. Markdown files here become website pages through MkDocs.
-- `mkdocs.yml` controls how the website is rendered, including navigation, theme settings, plugins, and GitHub edit links.
-- Scientific working materials belong in working folders such as data, notebooks, scripts, workflows, outputs, and figure directories.
+The `docs/` directory contains the source content for the EdgeSS website. Content in this directory is automatically rendered into a public project website using MkDocs.
 
-## Common places to edit
+Examples include:
 
-- `docs/index.md` is the homepage for the public site.
-- `docs/work-plan.md` tracks milestones, meetings, and outputs for the working group.
-- `docs/how-this-group-works.md` holds collaboration norms, working group guides, and data and methods galleries.
-- `docs/esiil-resources/team-trainings.md` and `docs/esiil-resources/code-of-conduct.md` are under ESIIL and Team Resources.
-- `docs/community-care.md` is nested under ESIIL and Team Resources and links to ESIIL community care and team science resources.
-- `docs/instructions/` contains practical working group instructions for GitHub, persistent storage, lifecycle phases, and landmarks.
-- `docs/resources/` contains reusable resource guides such as the Cloud Triangle and Cite and Reuse guidance.
-- `docs/assets/images/slots/` contains named image slots for the homepage and other shared visuals.
-- `docs/assets/images/process/` contains folder-driven process galleries that render automatically on the site.
+* Project overview and goals
+* Working group information
+* Meeting notes and project updates
+* Technical documentation
+* Training materials and resources
+* Project deliverables and outputs
 
-## Preview locally
+### Research and Development Layer
+
+Additional project folders contain the scientific and technical work that supports EdgeSS activities, including:
+
+* Data workflows
+* Analysis notebooks
+* Edge computing experiments
+* Sensor integration documentation
+* AI and machine learning workflows
+* Figures, reports, and deliverables
+
+---
+
+## Frequently Updated Files
+
+Common files and locations that project contributors may edit include:
+
+* `docs/index.md` – Project homepage
+* `docs/work-plan.md` – Project roadmap, milestones, and meeting tracking
+* `docs/how-this-group-works.md` – Collaboration guidelines and team practices
+* `docs/esiil-resources/` – Shared ESIIL resources and training materials
+* `docs/instructions/` – Contributor and GitHub guidance
+* `docs/resources/` – Reference materials and supporting documentation
+
+---
+
+## Local Development
+
+Install dependencies and start a local preview of the website:
 
 ```bash
 pip install -r requirements.txt
@@ -51,7 +83,13 @@ python scripts/site_health.py
 mkdocs serve
 ```
 
-## Build site
+The site will be available locally and automatically update as documentation changes are made.
+
+---
+
+## Building the Site
+
+Generate a production build of the website:
 
 ```bash
 python scripts/generate_image_slots.py
@@ -59,53 +97,58 @@ python scripts/site_health.py
 mkdocs build --strict --clean
 ```
 
-## Swapping homepage images
+---
 
-The site uses semantic image slots so Working Group members do not need to edit Markdown links every time an image changes.
+## Managing Images and Visual Assets
 
-1. Open the relevant folder in `docs/assets/images/slots/`.
-2. Delete the old image file.
-3. Add one new `.png`, `.jpg`, `.jpeg`, `.webp`, or `.svg` file.
-4. Run `python scripts/generate_image_slots.py`.
-5. Commit the image change and the regenerated slot references.
+The website uses semantic image slots to simplify updating project visuals without modifying Markdown references.
 
-If a slot folder contains multiple images, the generator uses the first image alphabetically and the site health report will warn you to clean it up. The cleanest workflow is still one image per slot folder.
+### Homepage and Shared Images
 
-## Using process galleries
+1. Navigate to the appropriate folder in `docs/assets/images/slots/`
+2. Replace the existing image with a new file
+3. Run:
 
-Process galleries are folder-driven. Add files to a gallery folder, commit them, and the site updates automatically.
+```bash
+python scripts/generate_image_slots.py
+```
 
-1. Open the relevant folder in `docs/assets/images/process/`.
-2. Add images or supported deliverable files.
-3. Optionally add a `captions.txt` file with lines like `filename.png | Caption text`.
-4. Run `python scripts/generate_image_slots.py`.
-5. Commit the new files and the regenerated gallery includes.
+4. Commit both the image and regenerated references
 
-Supported image files:
+### Process Galleries
 
-- `.png`
-- `.jpg`
-- `.jpeg`
-- `.webp`
-- `.svg`
+Process galleries automatically render content placed in:
 
-Supported linked deliverable files:
+```text
+docs/assets/images/process/
+```
 
-- `.pdf`
-- `.html`
-- `.csv`
-- `.xlsx`
-- `.docx`
-- `.pptx`
+Supported content includes:
 
-## Site Health
+* Images (`png`, `jpg`, `jpeg`, `webp`, `svg`)
+* Deliverables (`pdf`, `html`, `csv`, `xlsx`, `docx`, `pptx`)
 
-The site generates a non-blocking health report during the build.
+Captions may be added using a `captions.txt` file.
 
-The report flags common issues such as missing files, placeholder links, outdated navigation, or incomplete template fields.
+---
 
-Warnings do not prevent the site from publishing. They are intended to help Working Group admins improve the site.
+## Site Health Checks
 
-## GitHub Pages
+A site health report is generated during each build to help identify:
 
-This site is automatically built and deployed using GitHub Actions.
+* Missing files
+* Broken references
+* Placeholder content
+* Navigation issues
+* Incomplete template sections
+
+Warnings do not prevent publication but help maintain documentation quality.
+
+---
+
+## Automated Publishing
+
+The EdgeSS website is automatically built and deployed through GitHub Actions whenever changes are merged into the repository.
+
+This allows project documentation, meeting materials, and public-facing resources to remain synchronized with ongoing project development and collaboration activities.
+
