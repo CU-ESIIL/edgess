@@ -1,4 +1,4 @@
-# EdgeSS: Sensor Synthesis at the Edge 
+# EdgeSS: Sensor Synthesis at the Edge
 
 This repository serves as the central collaboration and documentation hub for the **EdgeSS (Sensor Synthesis at the Edge: Scalable Environmental Insights from Real-time Data)** project.
 
